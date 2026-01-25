@@ -14,12 +14,12 @@
 
     <h1 class="text-center heading-1 mt-5 mb-5">Blogs</h1>
     <section
-    <div class="card-container">
+        <div class="card-container">
             
             {% for blog_data in  blogs %}
-                <a href="">
+                <a href="{%url "blog-detail" "my-first-blog" %}">
                     <h3>{{ blog_data.title }}</h3>
-                    <p>{{ blog_data.content }}</p>
+                    <p>{{ blog_data.excerpt }}</p>
                 </a>
             {% endfor %}
             

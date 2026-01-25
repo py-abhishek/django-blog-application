@@ -1,0 +1,30 @@
+:root {
+  --primary-color: #268A59; 
+  --accent-color: #8A2658;
+  --text-color: #333333;
+  --primary-text-color: #383838;
+}
+
+main {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+article h1 {
+    font-size: 2.5rem;
+}
+
+article span {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+article span .strong {
+    font-weight: bold;
+}
+
+article p {
+    font-size: 1.2rem;
+    line-height: 2.3rem;
+    color: var(--text-color);
+}

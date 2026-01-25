@@ -36,9 +36,9 @@ It covers concepts, decisions, and implementations while building realistic Djan
         <div class="card-container">
             
             {% for blog_data in  blogs %}
-                <a href="">
+                <a href="{% url "blog-detail" blog_data.slug %}">
                     <h3>{{ blog_data.title }}</h3>
-                    <p>{{ blog_data.content }}</p>
+                    <p>{{ blog_data.excerpt }}</p>
                 </a>
             {% endfor %}
             
