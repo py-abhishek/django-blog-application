@@ -2,9 +2,9 @@
     <h2 class="logo-text">Django Journal</h2>
     <nav>
         <ul class="nav-items">
-            <li><a href="/">Home</a></li>
-            <li><a href="/blogs">Blog</a></li>
-            <li><a href="/about">About</a></li>
+            <li><a href="{% url "index-page" %}">Home</a></li>
+            <li><a href="{% url "blog-page" %}">Blog</a></li>
+            <li><a href="{% url "about-page" %}">About</a></li>
         </ul>
     </nav>
 </header>

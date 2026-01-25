@@ -20,11 +20,21 @@ blogs = [
 
 # Create your views here.
 # / page
-def index(request):
+def index_view(request):
     return render(request, "blog/index.html",{
             'blogs': blogs
         })
 
 # /blogs page
-# def blogs(request):
-#     return render(request, "blog/blogs.html")
+def blogs_view(request):
+    return render(request, "blog/blog.html",{
+            'blogs': blogs
+        })
+
+# /about page
+def about_view(request):
+    return render(request, "blog/about.html")
+
+# /blog/post_details page
+def blog_detail(request):
+    return render(request, "blog/blog_detail.html")

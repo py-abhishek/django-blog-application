@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Blogs | Django Journal{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/styles.css" %}">
+    <link rel="stylesheet" href="{% static "blog/header.css" %}">
+    <link rel="stylesheet" href="{% static "blog/footer.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./includes/header.html" %}
+
+    <h1 class="text-center heading-1 mt-5 mb-5">Blogs</h1>
+    <section
+    <div class="card-container">
+            
+            {% for blog_data in  blogs %}
+                <a href="">
+                    <h3>{{ blog_data.title }}</h3>
+                    <p>{{ blog_data.content }}</p>
+                </a>
+            {% endfor %}
+            
+        </div>
+    </section>
+
+
+    {% include "./includes/footer.html" %}
+{% endblock %}

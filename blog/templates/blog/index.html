@@ -17,13 +17,13 @@
         <h1>A Practical Journal for Real Django Development</h1>
         <p>Django Journal is a learning focused blog that documents real world Django development.
 It covers concepts, decisions, and implementations while building realistic Django applications.</p>
-        <a href="#featured-articles-section">Start Your Learning</a>
+        <a class="btn" href="#featured-articles-section">Start Your Learning</a>
     </section>
 
     <!-- About Section -->
     <section class="default-section-layout">
         <h2>About Django Journal</h2>
-        <div>
+        <div class="section-content">
             <p>Learning Django often feels fragmented. Concepts are explained in isolation without showing how they connect in real projects.</p>
             <p>Django Journal focuses on clarity and context. Each article explains not only how something works, but why it is used and where it fits in an actual application.</p>
         </div>
@@ -33,7 +33,7 @@ It covers concepts, decisions, and implementations while building realistic Djan
     <section class="featured-articles-section" id="featured-articles-section">
         <h2>Featured Articles</h2>
         <p>A curated selection of articles that reflect key concepts and real project decisions.</p>
-        <div class="card-layout">
+        <div class="card-container">
             
             {% for blog_data in  blogs %}
                 <a href="">
@@ -43,12 +43,13 @@ It covers concepts, decisions, and implementations while building realistic Djan
             {% endfor %}
             
         </div>
+        <a class="btn" href="{% url "blog-page" %}">View All</a>
     </section>
 
     <!-- Quick Summary Section -->
     <section class="default-section-layout reverse-layout">
         <h2>What You Will Find Here</h2>
-        <div>
+        <div class="section-content-reverse">
             <ul>
                 <li>Core Django concepts explained with practical examples</li>
                 <li>Real project structure and reusable app design</li>
@@ -61,7 +62,7 @@ It covers concepts, decisions, and implementations while building realistic Djan
     <!-- Built with Django Section -->
     <section class="default-section-layout">
         <h2>Built as a Real Django Application</h2>
-        <div>
+        <div class="section-content">
             <p>Django Journal is a fully functional Django project, not a static site.</p>
             <p>It uses proper app separation, database driven content, and clean template structure to mirror real world development practices.</p>
         </div>
