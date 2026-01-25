@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Django Journal{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/styles.css" %}">
+    <link rel="stylesheet" href="{% static "blog/header.css" %}">
+    <link rel="stylesheet" href="{% static "blog/footer.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>A Practical Journal for Real Django Development</h1>
+        <p>Django Journal is a learning focused blog that documents real world Django development.
+It covers concepts, decisions, and implementations while building realistic Django applications.</p>
+        <a href="#featured-articles-section">Start Your Learning</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="default-section-layout">
+        <h2>About Django Journal</h2>
+        <div>
+            <p>Learning Django often feels fragmented. Concepts are explained in isolation without showing how they connect in real projects.</p>
+            <p>Django Journal focuses on clarity and context. Each article explains not only how something works, but why it is used and where it fits in an actual application.</p>
+        </div>
+    </section>
+
+    <!-- Featured Articles -->
+    <section class="featured-articles-section" id="featured-articles-section">
+        <h2>Featured Articles</h2>
+        <p>A curated selection of articles that reflect key concepts and real project decisions.</p>
+        <div class="card-layout">
+            
+            {% for blog_data in  blogs %}
+                <a href="">
+                    <h3>{{ blog_data.title }}</h3>
+                    <p>{{ blog_data.content }}</p>
+                </a>
+            {% endfor %}
+            
+        </div>
+    </section>
+
+    <!-- Quick Summary Section -->
+    <section class="default-section-layout reverse-layout">
+        <h2>What You Will Find Here</h2>
+        <div>
+            <ul>
+                <li>Core Django concepts explained with practical examples</li>
+                <li>Real project structure and reusable app design</li>
+                <li>Database driven features and authentication basics</li>
+                <li>Learning insights from building real features</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Built with Django Section -->
+    <section class="default-section-layout">
+        <h2>Built as a Real Django Application</h2>
+        <div>
+            <p>Django Journal is a fully functional Django project, not a static site.</p>
+            <p>It uses proper app separation, database driven content, and clean template structure to mirror real world development practices.</p>
+        </div>
+    </section>
+
+    {% include "./includes/footer.html" %}
+{% endblock %}

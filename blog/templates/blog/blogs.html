@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Blogs | Django Journal{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/styles.css" %}">
+    <link rel="stylesheet" href="{% static "blog/header.css" %}">
+    <link rel="stylesheet" href="{% static "blog/footer.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./includes/header.html" %}
+
+
+
+    {% include "./includes/footer.html" %}
+{% endblock %}

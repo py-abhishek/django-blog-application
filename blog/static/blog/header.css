@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #268A59; 
+  --accent-color: #8A2658;
+  --text-color: #333333;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 4rem;
+    background-color: var(--primary-color);
+}
+
+header h2 {
+    color: #fff;
+    font-size: 2rem;
+}
+
+header nav, header nav ul {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li a{
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color .5s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--accent-color);
+    cursor: pointer;
+}
