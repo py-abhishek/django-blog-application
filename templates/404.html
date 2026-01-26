@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Page Not Found!{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/styles.css" %}">
+    <link rel="stylesheet" href="{% static "blog/header.css" %}">
+    <link rel="stylesheet" href="{% static "blog/footer.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./includes/header.html" %}
+
+    <h2 class="center-text">Page Not Found!</h2>
+    <p class="center-text"> The page you are looking for not available or removed.</p>
+
+    {% include "./includes/footer.html" %}
+{% endblock %}
