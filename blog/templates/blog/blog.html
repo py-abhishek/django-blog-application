@@ -13,11 +13,11 @@
     {% include "./includes/header.html" %}
 
     <h1 class="text-center heading-1 mt-5 mb-5">Blogs</h1>
-    <section
+    <section class="m-around-6 mb-5">
         <div class="card-container">
             
             {% for blog_data in  blogs %}
-                <a href="{%url "blog-detail" "my-first-blog" %}">
+                <a href="{%url "blog-detail" blog_data.slug %}">
                     <h3>{{ blog_data.title }}</h3>
                     <p>{{ blog_data.excerpt }}</p>
                 </a>

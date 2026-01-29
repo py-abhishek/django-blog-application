@@ -10,11 +10,15 @@ header {
     justify-content: space-between;
     padding: 0rem 4rem;
     background-color: var(--primary-color);
+    height: 5rem;
+    align-items: center;
 }
 
-header h2 {
+header .logo-text {
     color: #fff;
     font-size: 2rem;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 header nav, header nav ul {
