@@ -1,9 +1,11 @@
 from datetime import date
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from blog.models import Post
+import logging
 
-
+'''
 blogs = [
     {
         'slug': 'my-first-blog-post',
@@ -42,21 +44,31 @@ blogs = [
 
 def get_date(post):
     return post['date']
+'''
 
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 # / page
 def index_view(request):
+    '''
     sorted_posts = sorted(blogs, key=get_date)
     latest_posts = sorted_posts[-3:]
     return render(request, "blog/index.html",{
             'blogs': latest_posts
         })
+    '''
+
+    posts = Post.objects.all().order_by("-date")[:3] # will create database query to get only 3 posts
+    return render(request, "blog/index.html", {
+        "blogs": posts
+    })
 
 # /blogs page
 def blogs_view(request):
+    posts = Post.objects.all().order_by("-date")
     return render(request, "blog/blog.html",{
-            'blogs': blogs
+            'blogs': posts
         })
 
 # /about page
@@ -65,8 +77,8 @@ def about_view(request):
 
 # /blog/post_details page
 def blog_detail(request, slug):
-    for blog in blogs:
-        if blog['slug'] == slug:
-            return render(request, "blog/blog_detail.html", {
-                'blog_detail': blog
-            })
+    # blog = Post.objects.get(slug=slug)
+    blog = get_object_or_404(Post, slug=slug)
+    return render(request, "blog/blog_detail.html", {
+        'blog_detail': blog
+    })
