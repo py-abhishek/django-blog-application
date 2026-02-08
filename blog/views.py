@@ -58,8 +58,8 @@ def index_view(request):
             'blogs': latest_posts
         })
     '''
-
-    posts = Post.objects.all().order_by("-date")[:3] # will create database query to get only 3 posts
+    posts = Post.objects.filter(tags__in=[0, 1]).order_by('-date')[:3] # tags = 0 filter by single tag; tags__in=[0, 1] filter by multiple tags
+    # posts = Post.objects.all().order_by("-date")[:3] # will create database query to get only 3 posts
     return render(request, "blog/index.html", {
         "blogs": posts
     })

@@ -18,10 +18,11 @@
                     <h1>{{ blog_detail.title }}</h1>
                     <span class="author">Written by: <span class="strong">{{ blog_detail.author }}</span> </span>
                     <span class="modify-date">| Last updated on: <time class="strong">{{ blog_detail.date|date:"d M Y"}}</time></span>
+                    {% comment %} <img src="{% static "blog/images/"|add:"image.png" %}"> {% endcomment %}
                 </section>
 
                 <section>
-                    {{ blog_detail.content|linebreaks }}
+                    {{ blog_detail.content|safe }}
                 </section>
 
             </article>
