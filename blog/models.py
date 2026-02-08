@@ -25,7 +25,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, db_index=True)
     excerpt = models.CharField(max_length=200)
     content = models.TextField(validators=[MinLengthValidator(10)])
-    image = models.CharField(max_length=20, null=True)
+    image = models.ImageField(upload_to="blog_images/")
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
