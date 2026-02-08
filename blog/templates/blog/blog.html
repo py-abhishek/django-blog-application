@@ -18,6 +18,9 @@
             
             {% for blog_data in  blogs %}
                 <a href="{%url "blog-detail" blog_data.slug %}">
+                    <div class="img-container">
+                        <img src="{{ blog_data.image.url }}" alt="{{ blog_data.title }}" >
+                    </div>
                     <h3>{{ blog_data.title }}</h3>
                     <p>{{ blog_data.excerpt }}</p>
                 </a>
