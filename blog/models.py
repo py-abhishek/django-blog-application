@@ -25,7 +25,7 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, db_index=True)
     excerpt = models.CharField(max_length=200)
     content = models.TextField(validators=[MinLengthValidator(10)])
-    image = models.ImageField(upload_to="blog_images/", default="blog_images/7090544.jpg")
+    image = models.ImageField(upload_to="images/", default="images/7090544.jpg")
     tags = models.ManyToManyField(Tag)
 
     def __str__(self):
@@ -36,3 +36,6 @@ class Comment(models.Model):
     user_name = models.CharField(max_length=100)
     comment = models.TextField()
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+
+    def __str__(self):
+        return self.comment

@@ -12,6 +12,28 @@
 
 {% block content %}
     {% include "./includes/header.html" %}
+    <div class="top-section">
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="{% url "index-page" %}" >Home</a></li>
+                <li><a href="{% url "blog-page" %}" >Blog</a></li>
+                {% comment %} <li>{{ blog_detail.title }}</li> {% endcomment %}
+            </ul>
+        </div>
+        <div class="read-later">
+            <form action="{% url "read-later" %}" method="POST">
+                {%csrf_token %}
+                <input type="hidden" value="{{ blog_detail.id }}" name="post_id">
+                <input type="hidden" value="{{ blog_detail.slug}}" name="slug">
+                {% if not is_saved_for_later %}
+                    <input type="submit" class="read-later-button" value="Read Later">
+                {% else %}
+                    <input type="submit" class="read-later-button" value="Remove from Read Later">
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
         <main>
             <article>
                 <section>
@@ -31,5 +53,37 @@
             </article>
 
         </main>
+        <hr>
+
+        <section class="comment-section">
+            
+
+            <div class="comment-list">
+                <h3>Comments</h3>
+                <ul>
+                    {% if blog_detail.comments.all %}
+                        {% for comment in blog_detail.comments.all %}
+                            <li>
+                                <h5>{{ comment.user_name }}</h5>
+                                <p>{{ comment.comment }}</p>
+                            </li>
+                        {% endfor %}
+                    {% else %}
+                        <li>
+                            <p>No comments yet...</p>
+                        </li>
+                    {% endif %}
+                </ul>
+            <div>
+                <h3>Add a Comment</h3>
+                <form id="comment-form" action="{% url "blog-detail" blog_detail.slug %}" method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field }}
+                    {{ field.errors }}
+                {% endfor %}
+                <button>Submit</button>
+            </form>
+        </section>
     {% include "./includes/footer.html" %}
 {% endblock %}

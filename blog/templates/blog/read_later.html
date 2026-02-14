@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Your Saved Posts | Django Journal{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/styles.css" %}">
+    <link rel="stylesheet" href="{% static "blog/header.css" %}">
+    <link rel="stylesheet" href="{% static "blog/footer.css" %}">
+{% endblock %}
+
+{% block content %}
+    {% include "./includes/header.html" %}
+
+    <h1 class="text-center heading-1 mt-5 mb-5">Your Saved Posts</h1>
+    <section class="m-around-6 mb-5">
+        <div class="card-container">
+            
+            {% for post in posts %}
+                <a href="{%url "blog-detail" post.slug %}">
+                    <div class="img-container">
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" >
+                    </div>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.excerpt }}</p>
+                </a>
+            {% endfor %}
+            
+        </div>
+    </section>
+
+
+    {% include "./includes/footer.html" %}
+{% endblock %}
