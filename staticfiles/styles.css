@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+:root {
+  --primary-color: #268A59; 
+  --accent-color: #8A2658;
+  --text-color: #333333;
+}
+
+html {
+  font-family: "Google Sans", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+/* Reusable classes */
+.text-center{
+    text-align: center;
+}
+
+.heading-1 {
+    font-size: 2.5rem;
+}
+
+.mt-5 {
+    margin-top: 5rem;
+}
+
+.mb-5{
+    margin-bottom: 5rem;
+}
+
+.m-around-6 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+p {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    line-height: 2rem;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
