@@ -4,9 +4,9 @@
 {% block meta_title %}Your Saved Posts | Django Journal{% endblock %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static "blog/styles.css" %}">
-    <link rel="stylesheet" href="{% static "blog/header.css" %}">
-    <link rel="stylesheet" href="{% static "blog/footer.css" %}">
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/header.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/footer.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
         <div class="card-container">
             
             {% for post in posts %}
-                <a href="{%url "blog-detail" post.slug %}">
+                <a href="{%url 'blog-detail' post.slug %}">
                     <div class="img-container">
                         <img src="{{ post.image.url }}" alt="{{ post.title }}" >
                     </div>

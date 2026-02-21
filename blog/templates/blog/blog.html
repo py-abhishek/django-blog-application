@@ -4,9 +4,9 @@
 {% block meta_title %}Blogs | Django Journal{% endblock %}
 
 {% block css_files %}
-    <link rel="stylesheet" href="{% static "blog/styles.css" %}">
-    <link rel="stylesheet" href="{% static "blog/header.css" %}">
-    <link rel="stylesheet" href="{% static "blog/footer.css" %}">
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/header.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/footer.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
         <div class="card-container">
             
             {% for blog_data in  blogs %}
-                <a href="{%url "blog-detail" blog_data.slug %}">
+                <a href="{%url 'blog-detail' blog_data.slug %}">
                     <div class="img-container">
                         <img src="{{ blog_data.image.url }}" alt="{{ blog_data.title }}" >
                     </div>

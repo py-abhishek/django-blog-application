@@ -47,7 +47,7 @@ class BlogDetailView(View):
 
     # Custom function to check if a post is saved for later
     def is_saved_for_later(self, request, post_id):
-        saved_posts = request.session["saved_posts"]
+        saved_posts = request.session.get("saved_posts")
 
         if saved_posts is not None:
             is_saved_for_later = post_id in saved_posts
