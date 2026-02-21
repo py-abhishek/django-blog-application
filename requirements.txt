@@ -1,7 +1,5 @@
 asgiref==3.11.0
-boto==2.49.0
 Django==6.0.1
-django-storages==1.14.6
 pillow==12.1.0
 psycopg==3.3.3
 psycopg-binary==3.3.3
